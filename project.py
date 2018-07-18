@@ -37,7 +37,7 @@ def save():
     try:
         loc.write(t.rstrip())
     except:
-        tkinter.messagebox.showerror(title="not saved",message='sorry')
+        messageBox.showerror(title="not saved",message='sorry')
         
 def saveas():
     loc=tkinter.filedialog.asksaveasfile(mode='w')
@@ -45,7 +45,7 @@ def saveas():
     try:
         loc.write(t.rstrip())
     except:
-        tkinter.messagebox.showerror(title="not saved",message='sorry')
+        tkinter.messageBox.showerror(title="not saved",message='sorry')
 def cut():
     sel =textPad.selection_get()
     clipboard = sel
@@ -57,6 +57,10 @@ def hello():
     
 def show():
     label=tkinter.messagebox.showinfo("Info","You are using Gauri's Textpad")
+
+def handle_click(event):
+    textPad.tag_config('found',background = 'white',foreground = 'black')
+    
     
 
 def find():
@@ -71,6 +75,8 @@ def find():
         textPad.tag_add('found', idx, lastidx)
         idx = lastidx
     textPad.tag_config('found', foreground='white', background='red')
+    textPad.bind("<1>",handle_click)
+    
    
 menuM=Menu(root)
 root.configure(menu=menuM)
