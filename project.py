@@ -14,14 +14,11 @@ root.configure(width=90,height=80)
 textPad=ScrolledText(root,width=200,height=200)
 
 def newpopup():
-    r1=Tk()
-    r1.title("Oopss!!!")
-    lab=Label(r1,text="Do you want to save the current file")
-    lab.pack(fill=X)
-    but1=Button(r1,text="yes",command= saveas).pack(side=LEFT,padx=20)
-    but2=Button(r1,text="no",command=new).pack(side=RIGHT,padx=20)
-    r1.mainloop()
-   
+    result = tkinter.messagebox.askyesno("SAVE","Do you want to save the current file")
+    if result:
+        saveas()
+    else:
+        new()
 def new():
     root.title("Untitled")
     global file
