@@ -37,7 +37,7 @@ def save():
     try:
         loc.write(t.rstrip())
     except:
-        messageBox.showerror(title="not saved",message='sorry')
+        tkinter.messagebox.showerror(title="not saved",message='sorry')
         
 def saveas():
     loc=tkinter.filedialog.asksaveasfile(mode='w')
@@ -45,7 +45,7 @@ def saveas():
     try:
         loc.write(t.rstrip())
     except:
-        tkinter.messageBox.showerror(title="not saved",message='sorry')
+        tkinter.messagebox.showerror(title="not saved",message='sorry')
 def cut():
     sel =textPad.selection_get()
     clipboard = sel
