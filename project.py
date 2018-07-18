@@ -49,13 +49,17 @@ def saveas():
         loc.write(t.rstrip())
     except:
         tkinter.messageBox.showerror(title="not saved",message='sorry')
+def cut():
+    sel =textPad.selection_get()
+    clipboard = sel
+    textPad.delete(SEL_FIRST, SEL_LAST)
     
     
 def hello():
     label=tkinter.messagebox.showinfo("About","Have a nice day.. we love you ")
     
 def show():
-    label=tkinter.messagebox.showinfo("View","You are using Gauri's Textpad")
+    label=tkinter.messagebox.showinfo("Info","You are using Gauri's Textpad")
     
 
 def find():
@@ -86,11 +90,11 @@ menuM.add_cascade(label="Edit",menu=editM)
 editM.add_command(label="Undo")
 editM.add_command(label="delete")
 editM.add_separator()
-editM.add_command(label="Cut",accelerator="Ctrl+C")
+editM.add_command(label="Cut",command=cut,accelerator="Ctrl+C")
 editM.add_command(label="Copy",accelerator="Ctrl+D")
 editM.add_command(label="Paste",accelerator="Ctrl+P")
 
-menuM.add_cascade(label="View",command=show)
+menuM.add_cascade(label="Info",command=show)
 
 menuM.add_cascade(label="About",command=hello)
 
